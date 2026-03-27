@@ -1,0 +1,19 @@
+
+[Writer]
+Readers per file: [0 0 0]
+Writer active: 1
+File contents:
+file1: Updated version 1
+file2: Updated version 1
+file3: Updated version 1
+---------------------------
+
+[Reader]
+Accessed file: file1.txt
+Readers per file: [0 1 1]
+Writer active: 0
+File contents:
+file1: Updated version 1
+file2: Updated version 1
+file3: Updated version 1
+---------------------------
