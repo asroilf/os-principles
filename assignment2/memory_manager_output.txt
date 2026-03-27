@@ -1,0 +1,711 @@
+==============================
+  First Fit
+==============================
+
+  Allocate 40 MB -> P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       216      [free]
+
+  Allocate 20 MB -> P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       196      [free]
+
+  Allocate 30 MB -> P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       166      [free]
+
+  Allocate 10 MB -> P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      156      [free]
+
+  Allocate 50 MB -> P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 15 MB -> P6
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 8 MB -> P7
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 25 MB -> P8
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       [free]
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Allocate 35 MB -> P9
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P6
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P7
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       60       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P8
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       166      [free]
+
+  Terminate P9
+    Start    Size     Owner
+    ----------------------------
+    0        256      [free]
+
+==============================
+  Next Fit
+==============================
+
+  Allocate 40 MB -> P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       216      [free]
+
+  Allocate 20 MB -> P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       196      [free]
+
+  Allocate 30 MB -> P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       166      [free]
+
+  Allocate 10 MB -> P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      156      [free]
+
+  Allocate 50 MB -> P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 15 MB -> P6
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 8 MB -> P7
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 25 MB -> P8
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       [free]
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Allocate 35 MB -> P9
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P6
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P7
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       60       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P8
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       166      [free]
+
+  Terminate P9
+    Start    Size     Owner
+    ----------------------------
+    0        256      [free]
+
+==============================
+  Best Fit
+==============================
+
+  Allocate 40 MB -> P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       216      [free]
+
+  Allocate 20 MB -> P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       196      [free]
+
+  Allocate 30 MB -> P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       166      [free]
+
+  Allocate 10 MB -> P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      156      [free]
+
+  Allocate 50 MB -> P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 15 MB -> P6
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 8 MB -> P7
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 25 MB -> P8
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       5        [free]
+    60       30       P3
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       [free]
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Allocate 35 MB -> P9
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       2        [free]
+    100      50       P5
+    150      25       P8
+    175      81       [free]
+
+  Terminate P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       15       P6
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P6
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       8        P7
+    98       52       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P7
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       60       [free]
+    150      25       P8
+    175      81       [free]
+
+  Terminate P8
+    Start    Size     Owner
+    ----------------------------
+    0        55       [free]
+    55       35       P9
+    90       166      [free]
+
+  Terminate P9
+    Start    Size     Owner
+    ----------------------------
+    0        256      [free]
+
+==============================
+  Worst Fit
+==============================
+
+  Allocate 40 MB -> P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       216      [free]
+
+  Allocate 20 MB -> P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       196      [free]
+
+  Allocate 30 MB -> P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       166      [free]
+
+  Allocate 10 MB -> P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      156      [free]
+
+  Allocate 50 MB -> P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       P2
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P2
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       P4
+    100      50       P5
+    150      106      [free]
+
+  Terminate P4
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      106      [free]
+
+  Allocate 15 MB -> P6
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      15       P6
+    165      91       [free]
+
+  Allocate 8 MB -> P7
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      15       P6
+    165      8        P7
+    173      83       [free]
+
+  Allocate 25 MB -> P8
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       20       [free]
+    60       30       P3
+    90       10       [free]
+    100      50       P5
+    150      15       P6
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Terminate P3
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       60       [free]
+    100      50       P5
+    150      15       P6
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Allocate 35 MB -> P9
+    Start    Size     Owner
+    ----------------------------
+    0        40       P1
+    40       35       P9
+    75       25       [free]
+    100      50       P5
+    150      15       P6
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Terminate P1
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       35       P9
+    75       25       [free]
+    100      50       P5
+    150      15       P6
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Terminate P5
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       35       P9
+    75       75       [free]
+    150      15       P6
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Terminate P6
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       35       P9
+    75       90       [free]
+    165      8        P7
+    173      25       P8
+    198      58       [free]
+
+  Terminate P7
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       35       P9
+    75       98       [free]
+    173      25       P8
+    198      58       [free]
+
+  Terminate P8
+    Start    Size     Owner
+    ----------------------------
+    0        40       [free]
+    40       35       P9
+    75       181      [free]
+
+  Terminate P9
+    Start    Size     Owner
+    ----------------------------
+    0        256      [free]
+
